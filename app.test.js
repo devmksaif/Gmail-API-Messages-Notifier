@@ -18,6 +18,10 @@ async function main() {
   if (message.subject.includes('Alert')) {
     let xhr = new XMLHttpRequest();
 	xhr.open("GET", "https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
+	console.log("Found");
+  }else
+  {
+	  console.log("Not found");
   }
 }
 
