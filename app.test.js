@@ -6,8 +6,7 @@ const gmailCredentials = {
   client_id: '377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com',
   client_secret: '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',
   redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-  access_token: 'ya29.a0AWY7CkmWgXjdNRIHyxq0aSFdIojTbqmrNWLskh_RsyWStqsZyUer2asQjfAcgbcLzH5o74lnIR0xpd4E6lehg0IN5v-r9XkYa5c-DcW_BHZQdfwhIG-1nyzfehnHJM2ma3fCozesawWmxfZahYa928TCH9DTaCgYKAeISARMSFQG1tDrp_lKUkMJVSiDBaiZcx0pdsQ0163',
-  refresh_token: '1//045LPSFR7j5oCCgYIARAAGAQSNwF-L9IrSxnh58DRsvMj_5rMM9SEJPEC5A6g6LgKcjOxVHzxXZMAPscq0YwYTE6r3HJWi2lkwdg',
+  authorization_code: '4/0AbUR2VO6iziaD3gu-ewGe3o4xdOUzpebgD1tKjygDLTZqVMjv1yarIjlpDIVzwlFE6CvEg',
 };
 const telegramToken = '6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
 
@@ -48,12 +47,14 @@ function getBody(payload) {
   return Buffer.from(body, 'base64').toString();
 }
 
-function getOAuth2Client() {
-  const {client_secret, client_id, redirect_uri, access_token, refresh_token} = gmailCredentials;
+async function getOAuth2Client() {
+  const {client_secret, client_id, redirect_uri, authorization_code} = gmailCredentials;
   const oAuth2Client = new google.auth.OAuth2(
     client_id, client_secret, redirect_uri);
-  oAuth2Client.setCredentials({access_token, refresh_token});
+  const {tokens} = await oAuth2Client.getToken(authorization_code);
+  oAuth2Client.setCredentials(tokens);
   return oAuth2Client;
 }
+
 
 main().catch(console.error);
