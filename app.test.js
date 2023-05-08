@@ -16,8 +16,8 @@ const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
 async function main() {
   const message = await getLatestEmail();
   if (message.subject.includes('Alert')) {
-    const telegram = new TelegramBot("6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y");
-    await telegram.sendMessage({chat_id: '@dragon_fire_signals', text: 'Alert!'});
+    let xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
   }
 }
 
