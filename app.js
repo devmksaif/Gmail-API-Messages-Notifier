@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 const TelegramBot = require('telegram-bot-api');
-const http = require('http');
+const http = require('https');
 
 
 // Replace with your own values
@@ -17,7 +17,7 @@ const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
 async function main() {
   const message = await getLatestEmail();
   if (message.subject.includes('Alert')) {
-	http.get("https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
+	https.get("https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
 	console.log("Found");
   }else
   {
