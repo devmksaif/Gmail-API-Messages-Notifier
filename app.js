@@ -7,8 +7,8 @@ const gmailCredentials = {
   client_id: '377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com',
   client_secret: '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',
   redirect_uri: 'https://6456cded5f9a4f23614c4fb9.mockapi.io/data',
-  access_token: 'ya29.a0AWY7Ckmy76nAJCtSeeBtBweycX04eV_lUKTrae7WyuKeBTeKacEr2UZHohktwmOrEcdlGz42bTA6cOlMFLxXTYAbDE3f7r6VDGgxKsZRw01Q-EwQxNSqfE7b97ID4YiPh3XtiXGUBqX9UqmmxNkaF2IFNcgPaCgYKAZASARMSFQG1tDrpZ7XTLGtcg8uzRFqVmwDqgA0163',
-  refresh_token: '1//04OgZijd_vYF2CgYIARAAGAQSNwF-L9IrtOzM08wUxKn0gVlz2_o3eIA6S2Y6AZ5yy_5AzkDU1Pj4ERtR2-KH_WUcGda5fDqcQOE',
+  access_token: 'ya29.a0AWY7Ckllp0dFY1nYb1jZLef6QHzUXVx3QOk5vHgq-FqwN0dWgg0hNUXkBafBygf82aQcP8JZl241vbRCcMFahSl7JRonI8LPHu39axUILxt8SQ22oklmIobd_8e_91_Lickc8JlnddZy4_jIP4cfNMnhAa76aCgYKAd4SARMSFQG1tDrpgVSWRV4N-xG323IFvPfDaQ0163',
+  refresh_token: '1//04H69gvJpeGZvCgYIARAAGAQSNwF-L9IrDRrW81JlgnQZwk39vsOhfa_S4zsRfCKH89l9yeaSTg5EA62y7bDOaB_LJkDJejrOMyk',
 };
 
 const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
