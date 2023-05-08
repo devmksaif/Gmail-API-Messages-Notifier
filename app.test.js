@@ -2,7 +2,7 @@ const {google} = require('googleapis');
 const oauth2Client = new google.auth.OAuth2(
   "377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com",
   "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",
-  "https://d8f7-102-157-10-217.ngrok-free.app/callback"
+  "https://6456cded5f9a4f23614c4fb9.mockapi.io/data"
 );
 
 
