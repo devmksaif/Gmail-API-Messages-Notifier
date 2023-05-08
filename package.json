@@ -1,6 +1,21 @@
 {
- "name":"simple",
-  "main":"app.js"
-  
-  
+  "name": "gmail-to-telegram-alert",
+  "version": "1.0.0",
+  "description": "A Node.js script that reads emails from Gmail and sends alerts to Telegram",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Node.js",
+    "Gmail API",
+    "Telegram API"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^94.0.0",
+    "nodemailer": "^6.6.3",
+    "telegraf": "^4.9.0"
+  }
 }

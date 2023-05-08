@@ -17,7 +17,7 @@ async function main() {
   const message = await getLatestEmail();
   if (message.subject.includes('Alert')) {
     const telegram = new TelegramBot(telegramToken);
-    await telegram.sendMessage({chat_id: 'YOUR_CHAT_ID', text: 'Alert!'});
+    await telegram.sendMessage({chat_id: '@dragon_fire_signals', text: 'Alert!'});
   }
 }
 
