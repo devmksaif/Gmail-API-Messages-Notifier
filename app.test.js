@@ -9,7 +9,7 @@ const gmailCredentials = {
   access_token: 'ya29.a0AWY7Ckmy76nAJCtSeeBtBweycX04eV_lUKTrae7WyuKeBTeKacEr2UZHohktwmOrEcdlGz42bTA6cOlMFLxXTYAbDE3f7r6VDGgxKsZRw01Q-EwQxNSqfE7b97ID4YiPh3XtiXGUBqX9UqmmxNkaF2IFNcgPaCgYKAZASARMSFQG1tDrpZ7XTLGtcg8uzRFqVmwDqgA0163',
   refresh_token: '1//04OgZijd_vYF2CgYIARAAGAQSNwF-L9IrtOzM08wUxKn0gVlz2_o3eIA6S2Y6AZ5yy_5AzkDU1Pj4ERtR2-KH_WUcGda5fDqcQOE',
 };
-const telegramToken = '6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
+const telegramToken = 'bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
 
 const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
 
