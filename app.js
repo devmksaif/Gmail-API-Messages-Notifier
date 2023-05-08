@@ -1,5 +1,7 @@
 const {google} = require('googleapis');
 const TelegramBot = require('telegram-bot-api');
+const http = require('http');
+
 
 // Replace with your own values
 const gmailCredentials = {
@@ -9,15 +11,13 @@ const gmailCredentials = {
   access_token: 'ya29.a0AWY7Ckmy76nAJCtSeeBtBweycX04eV_lUKTrae7WyuKeBTeKacEr2UZHohktwmOrEcdlGz42bTA6cOlMFLxXTYAbDE3f7r6VDGgxKsZRw01Q-EwQxNSqfE7b97ID4YiPh3XtiXGUBqX9UqmmxNkaF2IFNcgPaCgYKAZASARMSFQG1tDrpZ7XTLGtcg8uzRFqVmwDqgA0163',
   refresh_token: '1//04OgZijd_vYF2CgYIARAAGAQSNwF-L9IrtOzM08wUxKn0gVlz2_o3eIA6S2Y6AZ5yy_5AzkDU1Pj4ERtR2-KH_WUcGda5fDqcQOE',
 };
-const telegramToken = 'bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
 
 const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
 
 async function main() {
   const message = await getLatestEmail();
   if (message.subject.includes('Alert')) {
-    let xhr = new XMLHttpRequest();
-	xhr.open("GET", "https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
+	http.get("https://api.telegram.org/bot6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y/sendMessage?chat_id=@dragon_fire_signals&text=Alert");
 	console.log("Found");
   }else
   {
