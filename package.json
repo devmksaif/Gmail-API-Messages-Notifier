@@ -4,14 +4,15 @@
   "description": "A Node.js script that reads emails from Gmail and sends alerts to Telegram",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "node app.test.js"
   },
   "keywords": [
     "Node.js",
     "Gmail API",
     "Telegram API"
   ],
-  "author": "Your Name",
+  "author": "SaifMakhlouf",
   "license": "MIT",
   "dependencies": {
     "googleapis": "^94.0.0",
