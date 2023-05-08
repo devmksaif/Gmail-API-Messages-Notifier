@@ -1,5 +1,4 @@
 const {google} = require('googleapis');
-const TelegramBot = require('telegram-bot-api');
 const http = require('https');
 
 
