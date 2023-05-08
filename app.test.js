@@ -1,60 +1,40 @@
 const {google} = require('googleapis');
-const TelegramBot = require('telegram-bot-api');
+const oauth2Client = new google.auth.OAuth2(
+  "377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com",
+  "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",
+  "https://d8f7-102-157-10-217.ngrok-free.app/callback"
+);
 
-// Replace with your own values
-const gmailCredentials = {
-  client_id: '377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com',
-  client_secret: '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',
-  redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-  authorization_code: '4/0AbUR2VO6iziaD3gu-ewGe3o4xdOUzpebgD1tKjygDLTZqVMjv1yarIjlpDIVzwlFE6CvEg',
-};
-const telegramToken = '6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
 
-const gmail = google.gmail({version: 'v1', auth: getOAuth2Client()});
+const scopes = [
+  'https://www.googleapis.com/auth/gmail.readonly'
+];
+const url = oauth2Client.generateAuthUrl({
+  access_type: 'offline',
+  scope: scopes.join(' '),
+});
 
-async function main() {
-  const message = await getLatestEmail();
-  if (message.subject.includes('Alert')) {
-    const telegram = new TelegramBot(telegramToken);
-    await telegram.sendMessage({chat_id: '@dragon_fire_signals', text: 'Alert!'});
+
+
+const code = '4/0AbUR2VO6iziaD3gu-ewGe3o4xdOUzpebgD1tKjygDLTZqVMjv1yarIjlpDIVzwlFE6CvEg';
+oauth2Client.getToken(code, (err, token) => {
+  if (err) return console.error('Error retrieving access token', err);
+  oauth2Client.setCredentials(token);
+});
+
+
+const gmail = google.gmail({version: 'v1', auth: oauth2Client});
+gmail.users.labels.list({
+  userId: 'me',
+}, (err, res) => {
+  if (err) return console.error('The API returned an error:', err.message);
+  const labels = res.data.labels;
+  if (labels.length) {
+    console.log('Labels:');
+    labels.forEach((label) => {
+      console.log(`- ${label.name} (${label.id})`);
+    });
+  } else {
+    console.log('No labels found.');
   }
-}
-
-async function getLatestEmail() {
-  const response = await gmail.users.messages.list({userId: 'me'});
-  const messageId = response.data.messages[0].id;
-  const message = await gmail.users.messages.get({userId: 'me', id: messageId});
-  return parseMessage(message.data);
-}
-
-function parseMessage(raw) {
-  const message = {};
-  for (const header of raw.payload.headers) {
-    message[header.name.toLowerCase()] = header.value;
-  }
-  message.body = getBody(raw.payload);
-  return message;
-}
-
-function getBody(payload) {
-  const body = payload.body.data || '';
-  const parts = payload.parts || [];
-  for (const part of parts) {
-    if (part.body && part.body.data) {
-      return Buffer.from(part.body.data, 'base64').toString();
-    }
-  }
-  return Buffer.from(body, 'base64').toString();
-}
-
-async function getOAuth2Client() {
-  const {client_secret, client_id, redirect_uri, authorization_code} = gmailCredentials;
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id, client_secret, redirect_uri);
-  const {tokens} = await oAuth2Client.getToken(authorization_code);
-  oAuth2Client.setCredentials(tokens);
-  return oAuth2Client;
-}
-
-
-main().catch(console.error);
+});
