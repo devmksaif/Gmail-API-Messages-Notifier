@@ -6,8 +6,8 @@ const gmailCredentials = {
   client_id: '377882535609-vfp4airhpnrlbh0tjruvmtf54bp8adt4.apps.googleusercontent.com',
   client_secret: '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',
   redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-  access_token: 'ya29.a0AWY7Ckk6NsYw5f62-B4L64TsdVXcmLc24O9GQEmSgT_xGfki9yL06nWij0Tyu-DlnR5EyyBeAAfcagXgjKxJOaGRL5ECA5FYLfzHF7RAJibUW2fO9XBIl30XOnebQwqSmTg0oADCf3JZfFnz9U_f19JdQxiGaCgYKAdASARMSFQG1tDrpKxcQhfFW5E3Ej2FvKrxnxQ0163',
-  refresh_token: '1//04TeZy10amwdUCgYIARAAGAQSNwF-L9IrLw0ivr9Jb15qfN4ybBT25jrA8mxOzvBtsaEdClKur_0yfSc6ph2ObC1DFcedXTDD2mA',
+  access_token: 'ya29.a0AWY7CkmWgXjdNRIHyxq0aSFdIojTbqmrNWLskh_RsyWStqsZyUer2asQjfAcgbcLzH5o74lnIR0xpd4E6lehg0IN5v-r9XkYa5c-DcW_BHZQdfwhIG-1nyzfehnHJM2ma3fCozesawWmxfZahYa928TCH9DTaCgYKAeISARMSFQG1tDrp_lKUkMJVSiDBaiZcx0pdsQ0163',
+  refresh_token: '1//045LPSFR7j5oCCgYIARAAGAQSNwF-L9IrSxnh58DRsvMj_5rMM9SEJPEC5A6g6LgKcjOxVHzxXZMAPscq0YwYTE6r3HJWi2lkwdg',
 };
 const telegramToken = '6216708603:AAHuLMJZbAG_u8bXA0mlCV2uxTJqNAvk2_Y';
 
